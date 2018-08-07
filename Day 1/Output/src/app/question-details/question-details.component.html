@@ -1,0 +1,25 @@
+<div *ngIf="inputQuestion !== null">
+  <form (ngSubmit)="saveDetails()" #detailsForm="ngForm">  
+  <h2 *ngIf="inputQuestion.id == 0">New Question Details</h2>
+  <h2 *ngIf="inputQuestion.id > 0">Question {{inputQuestion.id}} Details</h2>
+  <p>Text: <input type="text" [(ngModel)]="inputQuestion.text" name="questionText" size="75" #questionText="ngModel" required /></p>
+  <p [hidden]="questionText.valid || questionText.pristine">Text is required</p>
+  <h3>Answers</h3>
+  <table>
+    <thead>
+      <tr>
+        <th width="70%">Text</th>
+        <th>Submitted By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let answer of inputQuestion.answers; let i = index">
+        <td><input type="text" [(ngModel)]="answer.text" name="answerText{{i}}" /></td>
+        <td><input type="text" [(ngModel)]="answer.submittedBy" name="submittedBy{{i}}" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="submit" value="Save" [disabled]="!detailsForm.form.valid" />
+  <button (click)="deleteQuestion()" class="delete" *ngIf="inputQuestion.id > 0">Delete this question</button>
+  </form>
+</div>
