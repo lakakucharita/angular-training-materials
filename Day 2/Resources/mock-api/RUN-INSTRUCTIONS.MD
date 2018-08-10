@@ -1,0 +1,1 @@
+To run this mock API, just execute the following command: npm start
