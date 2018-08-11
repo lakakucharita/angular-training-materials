@@ -1,0 +1,13 @@
+<h1>Question and Answer App</h1>
+<div>
+    <strong>Main Navigation</strong>
+    <ul class="main-navigation">
+        <li><a routerLink="home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="questions" routerLinkActive="active">Questions</a></li>
+        <li><a routerLink="about" routerLinkActive="active">About</a></li>
+    </ul>
+    <button (click)="authService.login()" *ngIf="!authService.authorized">Login</button>
+    <button (click)="authService.logout()" *ngIf="authService.authorized">Logout</button>
+</div>
+<app-messages></app-messages>
+<router-outlet></router-outlet>

@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    margin: 18px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    &,
+    th,
+    td {
+        border: 1px solid #ccc;
+    }
+    th,
+    td {
+        padding: 10px;
+    }
+    th {
+        text-align: left;
+        background-color: #000;
+        color: #fff;
+    }
+    tr {
+        &.active {
+            font-weight: bold;
+            background-color: #ddd;
+            &:hover {
+                background-color: #ddd;
+            }
+        }
+        &:hover {
+            background-color: #eee;
+        }
+    }
+    td {
+        input[type=text] {
+            width: 90%;
+        }
+        &.actions {
+            a {
+                display: inline-block;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+input[type=submit],
+button {
+    display: inline-block;
+    margin: 10px 0px;
+}

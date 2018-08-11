@@ -1,0 +1,23 @@
+<h2>All Questions</h2>
+<button [routerLink]="['/questions', 0]">New</button>
+<table>
+  <thead>
+    <tr>
+      <th width="5%">ID</th>
+      <th width="50%">Text</th>
+      <th width="20%">Answer Count</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr [class.active]="question == selectedQuestion" *ngFor="let question of questionList">
+      <td>{{question.id}}</td>
+      <td>{{question.text}}</td>
+      <td>{{question.answers.length}}</td>
+      <td class="actions">
+        <a [routerLink]="['/questions', question.id]">View</a>
+        <a (click)="deleteQuestion(question)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
