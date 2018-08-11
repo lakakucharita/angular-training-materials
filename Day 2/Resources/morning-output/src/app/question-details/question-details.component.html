@@ -1,0 +1,25 @@
+<div *ngIf="selectedQuestion !== null">
+  <form [formGroup]="questionForm" (ngSubmit)="saveDetails()">
+    <h2 *ngIf="selectedQuestion.id == 0">New Question Details</h2>
+    <h2 *ngIf="selectedQuestion.id > 0">Question {{selectedQuestion.id}} Details</h2>
+    <p>Text:
+      <input type="text" size="75" formControlName="text" />
+    </p>
+    <table formArrayName="answers">
+        <thead>
+          <tr>
+            <th width="70%">Text</th>
+            <th>Submitted By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let answer of answers.controls; let i = index" [formGroupName]="i">
+            <td><input type="text" formControlName="text" /></td>
+            <td><input type="text" formControlName="submittedBy" /></td>
+          </tr>
+        </tbody>
+      </table>
+    <input type="submit" value="Save" />
+    <button (click)="deleteQuestion()" class="delete" *ngIf="selectedQuestion.id > 0">Delete this question</button>
+  </form>
+</div>

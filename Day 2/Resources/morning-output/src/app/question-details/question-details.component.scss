@@ -1,0 +1,11 @@
+button {
+    &.delete {
+        color: red;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
